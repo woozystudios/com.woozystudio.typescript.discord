@@ -2,6 +2,8 @@
 node_modules/
 package-lock.json
 
-# dotenv environment variables
-.env
-.dev.env
+# Config
+data/config.json
+
+# Build
+build/

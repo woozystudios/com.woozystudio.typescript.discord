@@ -4,11 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "del /s /q build",
+    "build": "tsc --build",
+    "start": "npm run clean && npm run build && node build/index.js",
+    "startNoClean": "npm run build && node build/index.js"
   },
-  "type": "module",
   "keywords": [],
   "author": "WoozyStudio <woozystudiocontact@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "discord-api-types": "^0.37.76",
+    "discord.js": "14.14.1",
+    "dotenv": "16.4.5",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
 }
