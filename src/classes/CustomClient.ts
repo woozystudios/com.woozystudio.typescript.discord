@@ -1,9 +1,11 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
 import ICustomClient from "../interfaces/ICustomClient";
 import IConfig from "../interfaces/IConfig";
+import Handler from "./Handler";
 
 export default class CustomClient extends Client implements ICustomClient
 {
+    handlers: Handler;
     config: IConfig;
     
     constructor()
@@ -42,12 +44,16 @@ export default class CustomClient extends Client implements ICustomClient
         });
 
         this.config = require(`${process.cwd()}/data/config.json`);
+        this.handlers = new Handler(this);
+    }
+    
+    Init(): void {
+        this.LoadHandlers();
+        this.login(this.config.token).catch((e) => console.error(e));
     }
 
-    Init(): void {
-        this.login(this.config.token).then(() => {
-            console.log(`Logged in.`)
-        }).catch((e) => console.error(e));
+    LoadHandlers(): void {
+        this.handlers.LoadEvents();
     }
     
 }
