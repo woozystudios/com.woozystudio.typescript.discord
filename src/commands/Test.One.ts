@@ -12,6 +12,6 @@ export default class TestOne extends SubCommand {
     }
 
     Execute(interaction: ChatInputCommandInteraction) {
-        interaction.reply({ content: "Test one command has been ran!", ephemeral: true })
+        interaction.reply({ content: "Test one command has been ran!", ephemeral: false })
     }
 }
