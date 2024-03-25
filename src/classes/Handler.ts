@@ -44,7 +44,7 @@ export default class Handler implements IHandler {
             this.client.commands.set(command.name, command as Command);
 
 
-            if(file.split("/").pop()?.split(".")[2])
+            if(command instanceof SubCommand)
                 return this.client.subCommands.set(command.name, command);
             
             return delete require.cache[require.resolve(file)]
