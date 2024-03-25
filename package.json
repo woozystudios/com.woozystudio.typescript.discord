@@ -7,13 +7,16 @@
     "clean": "del /s /q build",
     "build": "tsc --build",
     "start": "npm run clean && npm run build && node build/index.js",
-    "startNoClean": "npm run build && node build/index.js"
+    "startNoClean": "npm run build && node build/index.js",
+    "dev": "npm run clean && npm run build && node build/index.js --development",
+    "devNoClean": "npm run build && node build/index.js --development"
   },
   "keywords": [],
   "author": "WoozyStudio <woozystudiocontact@gmail.com>",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "colors": "1.4.0",
     "discord-api-types": "^0.37.76",
     "discord.js": "14.14.1",
     "dotenv": "16.4.5",
