@@ -12,11 +12,18 @@ export default class Test extends Command {
             userPermissions: PermissionsBitField.Flags.UseApplicationCommands,
             dmPermissions: false,
             cooldown: 3,
-            options: [{
-                name: "one",
-                description: "A",
-                type: ApplicationCommandOptionType.Subcommand
-            }]
+            options: [
+                {
+                    name: "one",
+                    description: "A",
+                    type: ApplicationCommandOptionType.Subcommand
+                },
+                {
+                    name: "two",
+                    description: "A",
+                    type: ApplicationCommandOptionType.Subcommand
+                }
+            ]
         });
     }
 
