@@ -20,6 +20,12 @@ export default class CommandHandler extends Event {
         //@ts-ignore
         if(!command) return interaction.reply({ content: `outdated command` }) && this.client.commands.delete(interaction.commandName);
 
+        if(command.development && !this.client.config.developersIds.includes(interaction.user.id))
+            return interaction.reply({ embeds: [new EmbedBuilder()
+                .setColor("Red")
+                .setDescription("❌ This command is only available to developers.")
+        ]})
+
         const { cooldowns } = this.client;
         if(!cooldowns.has(command.name)) cooldowns.set(command.name, new Collection());
 
