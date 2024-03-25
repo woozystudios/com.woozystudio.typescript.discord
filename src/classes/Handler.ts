@@ -41,12 +41,11 @@ export default class Handler implements IHandler {
             if(!command.name)
                 return delete require.cache[require.resolve(file)] && console.log(`${file.split("/").pop()} does not have a valid name.`);
 
-            this.client.commands.set(command.name, command as Command);
-
-
             if(command instanceof SubCommand)
                 return this.client.subCommands.set(command.name, command);
             
+            this.client.commands.set(command.name, command as Command);
+
             return delete require.cache[require.resolve(file)]
 
             
